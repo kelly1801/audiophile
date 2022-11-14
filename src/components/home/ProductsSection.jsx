@@ -22,8 +22,8 @@ const ProductsSection = () => {
   return (
     <Product>
       <ProductHome />
-        {ProductsHomeArray.map((product) => (
-        <ProductTiny product={product} />
+        {ProductsHomeArray.map((product, index) => (
+        <ProductTiny key={index}  product={product} />
       ))}
         <Description>
         <h3>YX1 EARPHONES</h3>

@@ -5,19 +5,20 @@ import ProductsSection from "../components/home/ProductsSection";
 import GearSection from "../components/home/GearSection";
 import Footer from "../components/home/Footer";
 import styled from "styled-components";
-export const Home = () => {
+const Home = () => {
     return (
         <Page>
-            <NavBar/>
+
             <Header/>
             <CategoriesSection/>
             <ProductsSection/>
             <GearSection/>
-            <Footer/>
+
         </Page>
     )
 }
 
+export default Home
 const Page = styled.main`
 
 `
