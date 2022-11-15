@@ -1,6 +1,6 @@
 import Home  from "./pages/Home";
-import NavBar from "./components/home/NavBar";
-import Footer from "./components/home/Footer";
+import NavBar from "./components/shared/NavBar";
+import Footer from "./components/shared/Footer";
 import CategoryPage from "./pages/CategoryPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 

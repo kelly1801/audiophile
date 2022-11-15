@@ -1,8 +1,8 @@
 
 import Header from "../components/home/Header";
-import CategoriesSection from "../components/home/CategoriesSection";
+import CategoriesSection from "../components/shared/CategoriesSection";
 import ProductsSection from "../components/home/ProductsSection";
-import GearSection from "../components/home/GearSection";
+import GearSection from "../components/shared/GearSection";
 
 const Home = () => {
     return (

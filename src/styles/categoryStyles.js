@@ -1,10 +1,14 @@
 import styled from "styled-components";
 export const PageContainer = styled.main`
   text-align: center;
+ 
   span {
     color: var(--primary);
   }
 `;
+export const ContentWrapper = styled.div`
+padding: 3rem;
+`
 export const Header = styled.header`
   background-color: var(--dark);
   color: var(--white);
@@ -45,13 +49,14 @@ export const TextWrapper = styled.div`
   }
 `;
 export const ProductsSection = styled.article`
+  
   @media (min-width: 1200px) {
     display: flex;
     text-align: left;
-    justify-content: space-around;
+    justify-content: space-between;
 
-    padding: 2rem;
-    :nth-child(odd) {
+    
+    :nth-child(even) {
       flex-direction: row-reverse;
     }
 

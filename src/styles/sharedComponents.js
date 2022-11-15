@@ -148,6 +148,10 @@ export const Page = styled(Section)`
 
   @media (min-width: 1200px) {
     flex-direction: row-reverse;
+   
+   picture {
+   max-width: 500px;
+   }
     ${TextWrapper} {
       width: 50%;
       text-align: left;
