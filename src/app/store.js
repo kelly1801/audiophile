@@ -1,9 +1,20 @@
-import { configureStore } from '@reduxjs/toolkit';
-import categoriesReducer from "./Categories/categoriesReducer";
-const store = configureStore({
+import { configureStore } from "@reduxjs/toolkit";
+import { persistReducer, persistStore } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import categoriesReducer from "./Categories/categoriesReducer"
+import thunk from 'redux-thunk';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+}
+const persistedReducer = persistReducer(persistConfig, categoriesReducer)
+export const store = configureStore({
   reducer: {
-    categories: categoriesReducer
+    categories: persistedReducer,
   },
+  devTools: process.env.NODE_ENV !== 'production',
+  middleware: [thunk]
 });
 
-export default store
+export const persistor = persistStore(store)

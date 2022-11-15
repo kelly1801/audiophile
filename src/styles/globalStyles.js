@@ -1,4 +1,4 @@
-import styled, {createGlobalStyle} from "styled-components";
+import {createGlobalStyle} from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -71,6 +71,7 @@ span {
   letter-spacing: 10px;
   font-weight: 200;
   line-height: 19px;
+  
 }
 
 .subtitle {
@@ -78,5 +79,6 @@ span {
   letter-spacing: 1px;
   line-height: 25px;
   font-weight: bold;
+ 
 }
 `

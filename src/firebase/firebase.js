@@ -14,6 +14,6 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export const readAllCategories = async () => {
-  const data = await getDocs(collection(db, "categories"));
+  const data = await getDocs(collection(db, `categories`));
   return data.docs.map((doc) => ({ ...doc.data() }));
 };
