@@ -5,6 +5,7 @@ export const categoriesSlice = createSlice({
   initialState: {
     categories: [],
 
+
   },
   reducers: {
     getCategories: (state, action) => {

@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import CategoryMenu from "./CategoryMenu";
 import headphonesImg from "../../assets/shared/desktop/image-category-thumbnail-headphones.png";
 import speakerImg from "../../assets/shared/desktop/image-category-thumbnail-speakers.png";

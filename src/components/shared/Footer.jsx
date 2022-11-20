@@ -4,7 +4,9 @@ import fbIcon from "../../assets/shared/desktop/icon-facebook.svg";
 import twIcon from "../../assets/shared/desktop/icon-twitter.svg";
 import instIcon from "../../assets/shared/desktop/icon-instagram.svg";
 import {PageFooter, FooterContainer, FooterSection, FooterMenu, BottomSection, IconContainer} from "../../styles/sharedComponents";
+import {useNavigate} from "react-router-dom";
 const Footer = () => {
+  const navigate = useNavigate()
   return (
     <PageFooter>
       <FooterContainer>
@@ -13,10 +15,10 @@ const Footer = () => {
         </FooterSection>
 
         <FooterMenu>
-          <li>HOME</li>
-          <li>HEADPHONES</li>
-          <li>SPEAKERS</li>
-          <li>EARPHONES</li>
+          <li onClick={() => navigate('/')}>HOME</li>
+          <li onClick={() => navigate('/headphones')}>HEADPHONES</li>
+          <li onClick={() => navigate('/speakers')}>SPEAKERS</li>
+          <li onClick={() => navigate('/earphones')}>EARPHONES</li>
         </FooterMenu>
 
         <FooterSection>

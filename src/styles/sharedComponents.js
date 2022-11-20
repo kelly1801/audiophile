@@ -1,5 +1,14 @@
 import styled, { css } from "styled-components";
 
+export const Overlay = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: -1rem;
+  background-color: #0c0e16;
+  z-index: 4;
+  opacity: 0.5;
+`;
 export const Button = styled.button`
   background-color: var(--primary);
   color: var(--white);
@@ -22,6 +31,31 @@ export const Button = styled.button`
       :hover {
         background-color: var(--black);
         color: var(--white);
+      }
+    `}
+
+  ${(props) =>
+    props.cart &&
+    css`
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    `}
+
+
+
+  ${(props) =>
+    props.back &&
+    css`
+      background-color: transparent;
+      color: var(--black);
+      font-weight: 500;
+      align-self: flex-start;
+      margin-left: 1rem;
+      :hover {
+        background-color: transparent;
+        cursor: pointer;
+        text-decoration: underline;
       }
     `}
 
@@ -56,12 +90,43 @@ export const Section = styled.section`
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-around;
-    padding-top: 2rem;
   }
+  ${(props) =>
+    props.recommended &&
+    css`
+      margin: 3rem 0;
+      padding: 0;
+      figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
-  @media (min-width: 1200px) {
-    padding-right: 2rem;
-  }
+        figcaption {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    `}
+
+  ${(props) =>
+    props.gallery &&
+    css`
+      @media (min-width: 768px) {
+        margin: 3rem;
+        div {
+          display: flex;
+          flex-direction: column;
+          picture {
+            padding: 0;
+            margin: 1rem;
+          }
+        }
+      }
+    `}
 `;
 
 export const Category = styled.div`
@@ -103,14 +168,13 @@ export const Menu = styled.div`
   width: 100%;
   padding: 2rem;
   position: absolute;
-  top: 7%;
+  top: 10%;
   left: 0;
   z-index: 6;
 
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-around;
-    top: 5%;
     border-radius: 0 0 0.5rem 0.5rem;
     padding-top: 2rem;
   }
@@ -148,10 +212,10 @@ export const Page = styled(Section)`
 
   @media (min-width: 1200px) {
     flex-direction: row-reverse;
-   
-   picture {
-   max-width: 500px;
-   }
+
+    picture {
+      max-width: 500px;
+    }
     ${TextWrapper} {
       width: 50%;
       text-align: left;

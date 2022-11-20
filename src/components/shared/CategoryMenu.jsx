@@ -7,7 +7,7 @@ const navigate = useNavigate()
 
   function goToCategory(title) {
 
-  navigate(`${title}`)
+  navigate(`/${title}`)
   }
 
   return (

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import hamburgerMenu from "../../assets/shared/tablet/icon-hamburger.svg";
 import logo from "../../assets/shared/desktop/logo.svg";
 import cartIcon from "../../assets/shared/desktop/icon-cart.svg";
@@ -13,10 +13,12 @@ import {
 } from "../../styles/sharedComponents";
 import { readAllCategories } from "../../firebase/firebase";
 import { useDispatch } from "react-redux";
-import { getCategories } from "../../app/Categories/categoriesReducer";
-
+import { getCategories } from "../../app/reducers/categoriesReducer";
+import { toggleNavBar } from "../../app/reducers/navBarReducer";
+import {toggleCart} from "../../app/reducers/cartReducer";
+import { useSelector } from "react-redux";
+import CartMenu from "./CartMenu";
 function NavBar() {
-  const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -29,30 +31,33 @@ function NavBar() {
     getData();
   }, []);
 
+  const {isOpen}= useSelector((state) => state.navBar);
+  const {showCart} = useSelector((state) => state.cart)
 
 
   return (
     <Nav>
       <NavContainer>
-        <MenuMobile onClick={() => setShow(!show)}>
+        <MenuMobile onClick={() => dispatch(toggleNavBar())}>
           <img src={hamburgerMenu} alt="" />
         </MenuMobile>
 
-        <Icon>
+        <Icon onClick={() => navigate("/")}>
           <img src={logo} alt="" />
         </Icon>
 
         <List>
-          <li onClick={() => navigate('/')}>HOME</li>
-          <li onClick={() => navigate('/headphones')}>HEADPHONES</li>
-          <li onClick={() => navigate('/speakers')}>SPEAKERS</li>
-          <li onClick={() => navigate('/earphones')}>EARPHONES</li>
+          <li onClick={() => navigate("/")}>HOME</li>
+          <li onClick={() => navigate("/headphones")}>HEADPHONES</li>
+          <li onClick={() => navigate("/speakers")}>SPEAKERS</li>
+          <li onClick={() => navigate("/earphones")}>EARPHONES</li>
         </List>
-        <Icon>
+        <Icon onClick={() => dispatch(toggleCart())}>
           <img src={cartIcon} alt="" />
         </Icon>
 
-        {show && <DropMenu />}
+        {isOpen && <DropMenu />}
+        {showCart && <CartMenu/>}
       </NavContainer>
     </Nav>
   );
