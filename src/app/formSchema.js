@@ -19,7 +19,7 @@ export const checkoutEschema = yup.object().shape({
 
 export const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
-    currency: 'EUR',
+    currency: 'USD',
     useGrouping: true,
     maximumSignificantDigits: 1,
 })

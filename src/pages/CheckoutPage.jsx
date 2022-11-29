@@ -5,13 +5,22 @@ import { checkoutEschema } from "../app/formSchema";
 import { Formik, Form, Field } from "formik";
 import {Summary} from "../components/cart/Summary";
 import {useSelector} from "react-redux";
+import {Overlay} from "../styles/sharedComponents";
+import {useDispatch} from "react-redux";
 export const CheckoutPage = () => {
   function submitHandler() {
     console.log("submit");
   }
-  const {cart} = useSelector((state) => state.cart)
+const dispatch = useDispatch()
+  function closeOver() {
+
+  }
+
+
+  const {cart, isPay} = useSelector((state) => state.cart)
   return (
     <PageContainer>
+      {isPay && <Overlay />}
       <CheckoutContainer>
         <Button back>Go back</Button>
           <Formik

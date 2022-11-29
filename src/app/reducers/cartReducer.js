@@ -10,10 +10,14 @@ export const categoriesSlice = createSlice({
     shipping: 50,
     vat: 0,
     grandTotal: 0,
+    isPay: false,
   },
   reducers: {
     toggleCart: (state) => {
       state.showCart = !state.showCart;
+    },
+    togglePayAlert: (state) => {
+      state.isPay = !state.isPay;
     },
     addToCart: (state, action) => {
       const itemInCart = state.cart.find(
@@ -59,6 +63,7 @@ export const categoriesSlice = createSlice({
 
 export const {
   toggleCart,
+  togglePayAlert,
   addToCart,
   removeAll,
   incrementQuantity,
