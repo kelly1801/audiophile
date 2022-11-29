@@ -1,6 +1,6 @@
-import { ProductsSection, PageContainer } from "../styles/categoryStyles";
+import {  PageContainer } from "../styles/categoryStyles";
 import { Button } from "../styles/sharedComponents";
-import { FormSection, Label, Heading , FormWrapper} from "../styles/FormStyles";
+import { FormSection, Label, Heading , FormWrapper, CheckoutContainer} from "../styles/FormStyles";
 import { checkoutEschema } from "../app/formSchema";
 import { Formik, Form, Field } from "formik";
 import {Summary} from "../components/cart/Summary";
@@ -12,7 +12,7 @@ export const CheckoutPage = () => {
   const {cart} = useSelector((state) => state.cart)
   return (
     <PageContainer>
-      <ProductsSection>
+      <CheckoutContainer>
         <Button back>Go back</Button>
           <Formik
           initialValues={{
@@ -96,11 +96,11 @@ export const CheckoutPage = () => {
             </FormSection>
           </Form>
 
-              <Summary cart={cart}/>
+
             </FormWrapper>
         </Formik>
-
-      </ProductsSection>
+        <Summary cart={cart}/>
+      </CheckoutContainer>
     </PageContainer>
   );
 };

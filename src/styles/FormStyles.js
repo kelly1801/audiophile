@@ -5,6 +5,8 @@ export const FormWrapper = styled.section`
   display: flex;
   flex-direction: column;
   padding: 0 2rem;
+background-color: var(--white);
+  
 h2{
   text-align: left;
   font-size: 1.75rem;
@@ -50,7 +52,9 @@ export const CheckoutSection = styled.div`
   display: flex;
   flex-direction: column;
   margin: 2rem 0;
-  
+  padding: 1rem;
+  width: 100%;
+  background-color: var(--white);
   h2{
     text-align: left;
     font-size: 1.75rem;
@@ -128,6 +132,40 @@ width: 100%;
   align-items: center;
   text-align: left;
   padding: 1rem;
-  
+  background-color: var(--white);
   
 `
+
+export const CheckoutContainer = styled.section`
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+@media(min-width: 1200px) {
+  flex-direction: row;
+  background-color: var(--lightGray);
+  position: relative;
+  padding: 4rem 8rem;
+  gap: 1rem;
+  
+  button:first-child{
+  
+    position: absolute;
+    left: 6rem;
+    top: 0;
+  }
+  
+  ${FormWrapper} {
+    border-radius: 0.5rem;
+    padding: 2rem;
+  }
+  ${CheckoutSection}{
+    border-radius: 0.5rem;
+    max-width: 350px;
+    align-self: flex-start;
+    margin-top: -2px;
+    
+  }
+},`

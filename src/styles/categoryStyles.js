@@ -76,6 +76,8 @@ export const TextWrapper = styled.div`
 `;
 
 export const SectionDivider = styled.div``;
+
+
 export const ProductsSection = styled.article`
   display: flex;
   text-align: center;
