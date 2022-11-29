@@ -17,8 +17,9 @@ import GearSection from "../components/shared/GearSection";
 import CategoriesSection from "../components/shared/CategoriesSection";
 import RecommendedProducts from "../components/shared/RecommendedProducts";
 import GallerySection from "../components/shared/GallerySection";
-import { addToCart } from "../app/reducers/cartReducer";
+import {addToCart} from "../app/reducers/cartReducer";
 import { QuantityButton } from "../components/shared/QuantityButton";
+import {formatter} from "../app/formSchema";
 export const ProductPage = () => {
   const { product } = useParams();
   const { categories } = useSelector((state) => state.categories);
@@ -34,13 +35,13 @@ export const ProductPage = () => {
     setProduct(...productItems);
   }, [product]);
   const { isOpen } = useSelector((state) => state.navBar);
-  const { quantity } = useSelector((state) => state.cart);
+  const { quantity, showCart } = useSelector((state) => state.cart);
   const { onTheBox, gallery, others, category } = productItem;
 
   return (
     <>
       <ContentWrapper productDetails>
-        {isOpen && <Overlay />}
+        {(isOpen || showCart) && <Overlay onClick={() => console.log('clicked')} />}
         <ProductsSection>
           <Button back onClick={() => navigate("/")}>
             Go back
@@ -56,7 +57,7 @@ export const ProductPage = () => {
               <h3>{productItem.name}</h3>
               {productItem.new && <span>New product</span>}
               <p>{productItem.description}</p>
-              <h6>${productItem.price}</h6>
+              <h6>{formatter.format(productItem.price)}</h6>
               <GroupButtons>
                 <QuantityButton id={productItem.id} quantity={quantity} />
                 <Button

@@ -7,6 +7,9 @@ export const categoriesSlice = createSlice({
     quantity: 1,
     showCart: false,
     total: 0,
+    shipping: 50,
+    vat: 0,
+    grandTotal: 0,
   },
   reducers: {
     toggleCart: (state) => {
@@ -46,6 +49,9 @@ export const categoriesSlice = createSlice({
         const quantity = item.quantity
         return price * quantity
       }).reduce((item1, item2) => item1 + item2, 0)
+
+      state.vat = 20 * state.total / 100;
+      state.grandTotal = state.total + state.shipping + state.vat
     }
 
   },
@@ -57,7 +63,7 @@ export const {
   removeAll,
   incrementQuantity,
   decrementQuantity,
-    getTotal
+  getTotal
 
 } = categoriesSlice.actions;
 export default categoriesSlice.reducer;

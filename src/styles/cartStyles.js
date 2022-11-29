@@ -74,10 +74,25 @@ export const CartWrapper = styled.div`
 export const CartItemContainer = styled.figure`
   width: 100%;
   display: flex;
-  gap: 0.5rem;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 2rem;
   align-items: center;
-  margin: 0.2rem 0;
+
+  div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  img {
+    background-color: aqua;
+  }
+  span {
+    font-size: 0.8rem;
+    letter-spacing: normal;
+    color: #8c959a;
+    font-weight: 700;
+  }
   figcaption {
     display: flex;
     flex-direction: column;
@@ -87,7 +102,10 @@ export const CartItemContainer = styled.figure`
     width: 3rem;
     h6 {
       font-size: 0.7rem;
+      margin: 0;
     }
+ 
+    
   }
 
   img {

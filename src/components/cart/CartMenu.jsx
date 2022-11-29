@@ -1,3 +1,9 @@
+import {useEffect} from "react";
+import {useSelector, useDispatch} from "react-redux";
+import {removeAll, getTotal} from "../../app/reducers/cartReducer";
+import CartItem from "./CartItem";
+import {useNavigate} from "react-router-dom";
+import { Button } from "../../styles/sharedComponents";
 import {
   CartContainer,
   CartWrapper,
@@ -5,16 +11,11 @@ import {
   CartProducts,
   CartFooter,
 } from "../../styles/cartStyles";
-import {useSelector, useDispatch} from "react-redux";
-import { Button } from "../../styles/sharedComponents";
-import CartItem from "./CartItem";
-import {removeAll, getTotal} from "../../app/reducers/cartReducer";
-import {useEffect} from "react";
 const CartMenu = () => {
 
 const {cart} = useSelector((state) => state.cart)
   const {total} = useSelector((state) => state.cart)
-
+const navigate = useNavigate()
 
 const dispatch = useDispatch()
 
@@ -46,10 +47,10 @@ const dispatch = useDispatch()
 
         <CartFooter>
           <div>
-            <span className="subtitle">total</span>{" "}
+            <span className="subtitle">total</span>
             <span className="subtitle">{total}</span>
           </div>
-          <Button cart>Checkout</Button>
+          <Button cart onClick={() => navigate("/checkout")}>Checkout</Button>
         </CartFooter>
       </CartWrapper>
     </CartContainer>

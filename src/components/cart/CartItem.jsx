@@ -1,18 +1,24 @@
 import { CartItemContainer } from "../../styles/cartStyles";
 import { QuantityButton } from "../shared/QuantityButton";
+import {formatter} from "../../app/formSchema";
 
-const CartItem = ({ image, title, price, quantity, id}) => {
+const CartItem = ({ image, title, price, quantity, id, checkout}) => {
 
   return (
     <CartItemContainer>
-      <img src={image} alt={title} />
+        <div>
+            <img src={image} alt={title} />
 
-      <figcaption>
-        <h6>{title.slice(0, 4)}</h6>
-        <h6>{price}</h6>
-      </figcaption>
+            <figcaption>
+                <h6>{title.slice(0, 4)}</h6>
+                <span>{formatter.format(price)}</span>
+            </figcaption>
+        </div>
 
-      <QuantityButton id={id} quantity={quantity}/>
+
+        {checkout ? <span> x{quantity}</span> :
+            <QuantityButton id={id} quantity={quantity}/>}
+
     </CartItemContainer>
   );
 };

@@ -11,11 +11,12 @@ const persistConfig = {
   storage,
 }
 const persistedReducer = persistReducer(persistConfig, categoriesReducer)
+const persistedCart = persistReducer(persistConfig, cartReducer)
 export const store = configureStore({
   reducer: {
     categories: persistedReducer,
     navBar: navBarReducer,
-    cart: cartReducer
+    cart: persistedCart,
   },
   devTools: process.env.NODE_ENV !== 'production',
   middleware: [thunk]

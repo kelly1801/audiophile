@@ -7,9 +7,11 @@ import {Overlay} from "../styles/sharedComponents";
 import {useSelector} from "react-redux";
 const Home = () => {
     const {isOpen} = useSelector(state => state.navBar)
+    const {showCart} = useSelector(state => state.cart)
+
     return (
         <main style={{position: "relative"}}>
-            {isOpen && <Overlay/>}
+            {(isOpen || showCart) && <Overlay/>}
             <Header/>
             <CategoriesSection/>
             <ProductsSection/>
