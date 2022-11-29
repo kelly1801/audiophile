@@ -33,8 +33,9 @@ export const CheckoutPage = () => {
             <FormWrapper>
                 <h2>Checkout</h2>
           <Form>
+            <Heading>BILLING DETAILS</Heading>
             <FormSection>
-              <Heading>BILLING DETAILS</Heading>
+
               <Label>
                 Name
                 <Field name="name" />
@@ -48,8 +49,9 @@ export const CheckoutPage = () => {
                 <Field name="phoneNumber" />
               </Label>
             </FormSection>
-            <FormSection>
-              <Heading>SHIPPING INFO</Heading>
+            <Heading>SHIPPING INFO</Heading>
+            <FormSection address>
+
               <Label>
                 Your Addresss
                 <Field name="address" />
@@ -67,10 +69,13 @@ export const CheckoutPage = () => {
                 <Field name="country" />
               </Label>
             </FormSection>
-            <FormSection>
-              <Heading>PAYMENT DETAILS</Heading>
-
+            <Heading>PAYMENT DETAILS</Heading>
+            <FormSection methods>
+              <Label>
+                Payment methods
+              </Label>
               <div role="group" aria-labelledby="paymentMethods">
+
                 <Label radio>
                   <Field type="radio" name="paymentMethod" value="emoney" />
                   e-Money

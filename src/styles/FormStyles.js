@@ -16,6 +16,35 @@ export const FormSection = styled.div`
   flex-direction: column;
   width: 100%;
   
+  @media(min-width: 765px) {
+    
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 0.5rem;
+   
+    label {
+     width: 49%;
+    }
+    ${props => props.address && css`
+
+      label:first-child {
+        width: 99%;
+      }
+  `}
+
+    ${props => props.methods && css`
+     
+div {
+  
+display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+}
+  `}
+  }
+  
 `;
 export const CheckoutSection = styled.div`
   display: flex;
@@ -46,7 +75,10 @@ export const Label = styled.label`
     padding: 0.5rem;
     border-radius: 0.5rem;
     outline-color: var(--primary);
-   
+
+    :hover {
+      border-color: var(--primary);
+    }
   }
 
   ${props => props.radio && css`
@@ -58,7 +90,10 @@ export const Label = styled.label`
     width: 100%;
     outline-color: var(--primary);
     margin: 0.5rem 0;
-   
+
+    :hover {
+      border-color: var(--primary);
+    }
     input {
       width: 10%;
       accent-color: var(--primary);
