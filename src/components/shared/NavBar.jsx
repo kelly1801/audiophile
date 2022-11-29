@@ -17,7 +17,7 @@ import { getCategories } from "../../app/reducers/categoriesReducer";
 import { toggleNavBar } from "../../app/reducers/navBarReducer";
 import {toggleCart} from "../../app/reducers/cartReducer";
 import { useSelector } from "react-redux";
-import CartMenu from "./CartMenu";
+import CartMenu from "../cart/CartMenu";
 function NavBar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();

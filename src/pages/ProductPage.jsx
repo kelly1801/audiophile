@@ -25,7 +25,6 @@ export const ProductPage = () => {
   const dispatch = useDispatch();
   const [productItem, setProduct] = useState([]);
 
-
   const navigate = useNavigate();
   useEffect(() => {
     const productItems = categories.filter(
@@ -35,14 +34,13 @@ export const ProductPage = () => {
     setProduct(...productItems);
   }, [product]);
   const { isOpen } = useSelector((state) => state.navBar);
-  const { showCart } = useSelector((state) => state.cart);
-const {quantity} = useSelector((state) => state.cart)
+  const { quantity } = useSelector((state) => state.cart);
   const { onTheBox, gallery, others, category } = productItem;
 
   return (
     <>
       <ContentWrapper productDetails>
-        {(isOpen || showCart) && <Overlay />}
+        {isOpen && <Overlay />}
         <ProductsSection>
           <Button back onClick={() => navigate("/")}>
             Go back
@@ -60,8 +58,12 @@ const {quantity} = useSelector((state) => state.cart)
               <p>{productItem.description}</p>
               <h6>${productItem.price}</h6>
               <GroupButtons>
-                <QuantityButton id={productItem.id} quantity={quantity}/>
-                <Button onClick={() => dispatch(addToCart({ ...productItem, quantity }))}>
+                <QuantityButton id={productItem.id} quantity={quantity} />
+                <Button
+                  onClick={() =>
+                    dispatch(addToCart({ ...productItem, quantity }))
+                  }
+                >
                   Add to Cart
                 </Button>
               </GroupButtons>

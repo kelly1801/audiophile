@@ -18,7 +18,7 @@ const CategoryPage = () => {
   const { category } = useParams();
   const categories = useSelector((state) => state.categories.categories);
   const [categoryArr, setCategory] = useState([]);
-  console.log(categories)
+
   useEffect(() => {
     const singleCat =  categories.filter(
       (categories) => categories.category === category
