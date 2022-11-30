@@ -56,8 +56,12 @@ export const categoriesSlice = createSlice({
 
       state.vat = 20 * state.total / 100;
       state.grandTotal = state.total + state.shipping + state.vat
-    }
+    },
+    toggleOverlay: (state, action) => {
 
+     action.payload === state.showCart ?
+      state.showCart = false : state.isPay = false
+    },
   },
 });
 
@@ -68,7 +72,8 @@ export const {
   removeAll,
   incrementQuantity,
   decrementQuantity,
-  getTotal
+  getTotal,
+  toggleOverlay
 
 } = categoriesSlice.actions;
 export default categoriesSlice.reducer;

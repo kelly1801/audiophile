@@ -16,10 +16,10 @@ export const checkoutEschema = yup.object().shape({
     emonyMethod: yup.boolean()
 })
 
-
 export const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
     useGrouping: true,
     maximumSignificantDigits: 1,
 })
+

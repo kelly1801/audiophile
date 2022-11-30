@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import {toggleOverlay} from "../app/reducers/cartReducer";
 import { Button, Overlay } from "../styles/sharedComponents";
 import {
   ContentWrapper,
@@ -20,6 +21,7 @@ import GallerySection from "../components/shared/GallerySection";
 import {addToCart} from "../app/reducers/cartReducer";
 import { QuantityButton } from "../components/shared/QuantityButton";
 import {formatter} from "../app/formSchema";
+
 export const ProductPage = () => {
   const { product } = useParams();
   const { categories } = useSelector((state) => state.categories);
@@ -38,10 +40,11 @@ export const ProductPage = () => {
   const { quantity, showCart } = useSelector((state) => state.cart);
   const { onTheBox, gallery, others, category } = productItem;
 
+
   return (
     <>
       <ContentWrapper productDetails>
-        {(isOpen || showCart) && <Overlay onClick={() => console.log('clicked')} />}
+        {(isOpen || showCart) && <Overlay onClick={() => dispatch(toggleOverlay(showCart))} />}
         <ProductsSection>
           <Button back onClick={() => navigate("/")}>
             Go back

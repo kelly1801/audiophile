@@ -11,6 +11,7 @@ export const navBarSlice = createSlice({
             state.isOpen = !state.isOpen
         },
 
+
     },
 });
 

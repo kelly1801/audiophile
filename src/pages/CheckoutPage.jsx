@@ -7,22 +7,21 @@ import {Summary} from "../components/cart/Summary";
 import {useSelector} from "react-redux";
 import {Overlay} from "../styles/sharedComponents";
 import {useDispatch} from "react-redux";
+import {toggleOverlay} from "../app/reducers/cartReducer";
+import {useNavigate} from "react-router-dom";
 export const CheckoutPage = () => {
   function submitHandler() {
     console.log("submit");
   }
-const dispatch = useDispatch()
-  function closeOver() {
-
-  }
-
-
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const {cart, isPay} = useSelector((state) => state.cart)
+
   return (
     <PageContainer>
-      {isPay && <Overlay />}
+      {isPay && <Overlay onClick={()=> dispatch(toggleOverlay(isPay))} />}
       <CheckoutContainer>
-        <Button back>Go back</Button>
+        <Button back onClick={() => navigate('/')}>Go back</Button>
           <Formik
           initialValues={{
             email: "",

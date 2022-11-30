@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { useParams } from "react-router-dom";
+import {toggleOverlay} from "../app/reducers/cartReducer";
 import {
   Header,
   PageContainer,
@@ -18,7 +19,7 @@ const CategoryPage = () => {
   const { category } = useParams();
   const categories = useSelector((state) => state.categories.categories);
   const [categoryArr, setCategory] = useState([]);
-
+const dispatch = useDispatch()
   useEffect(() => {
     const singleCat =  categories.filter(
       (categories) => categories.category === category
@@ -33,7 +34,7 @@ const CategoryPage = () => {
 
   return (
     <PageContainer>
-      {(isOpen || showCart) && <Overlay />}
+      {(isOpen || showCart) && <Overlay onClick={() => dispatch(toggleOverlay(showCart))} />}
 
       <Header>
         <h2>{category}</h2>
