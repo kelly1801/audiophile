@@ -36,7 +36,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://audiphile.netlify.app/](https://audiphile.netlify.app/)
+- Solution URL: [https://audiophile-kelly.netlify.app/](https://audiophile-kelly.netlify.app/
 - Live Site URL: [https://github.com/kelly1801/audiophile](https://github.com/kelly1801/audiophile)
 
 ## My process
